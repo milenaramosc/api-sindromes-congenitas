@@ -1,0 +1,11 @@
+#!/usr/bin/php
+
+<?php
+
+define('ABSOLUTE_MAIN_DIR', dirname(__FILE__));
+date_default_timezone_set('America/Fortaleza');
+
+require 'vendor/autoload.php';
+require 'app/core/config/.env.php';
+
+CLI\Runner::run();
