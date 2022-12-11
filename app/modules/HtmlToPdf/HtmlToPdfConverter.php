@@ -1,9 +1,18 @@
 <?php
 
+
 namespace Modules\HtmlToPdf;
 
-use App\Core\Exceptions\ServiceException;
+
+use Spipu\Html2Pdf\Html2Pdf;
+
+
+
 use Modules\Services\Service;
+use App\Core\Exceptions\ServiceException;
+
+
+
 
 class HtmlToPdfConverter
 {
@@ -22,30 +31,58 @@ class HtmlToPdfConverter
         return $this;
     }
 
-    public function convert(
-        DictionaryCollection $dictionaryCollection,
-        Options $options,
-        string $html
-    ): string {
-        $requestBody = [
-            "debug" => $this->debug,
-            "options" => $options->get(),
-            "origins" => [
-                [
-                    "source" => base64_encode($html),
-                    "dictionary" => $dictionaryCollection->get()
-                ]
-            ]
-        ];
+    public function convert(string $html)
+    {
 
-        $response = $this->request
-            ->post('/', $requestBody)
-            ->serviceResponse();
+        $html2pdf = new Html2Pdf();
+        $html2pdf->writeHTML('<h1>HelloWorld</h1>This is my first test');
+        $html2pdf->output();
+        // $requestBody = [
+        //     "debug" => $this->debug,
+        //     "options" => $options->get(),
+        //     "origins" => [
+        //         [
+        //             "source" => base64_encode($html),
+        //             "dictionary" => $dictionaryCollection->get()
+        //         ]
+        //     ]
+        // ];
 
-        if ($this->request->serviceHttpCode() !== 200) {
-            throw new ServiceException("Não foi possível gerar o arquivo PDF");
-        }
+        // $response = $this->request
+        //     ->post('/', $requestBody)
+        //     ->serviceResponse();
 
-        return $response;
+        // if ($this->request->serviceHttpCode() !== 200) {
+        //     throw new ServiceException("Não foi possível gerar o arquivo PDF");
+        // }
+
+        // return $response;
     }
+
+    // public function convert(
+    //     DictionaryCollection $dictionaryCollection,
+    //     Options $options,
+    //     string $html
+    // ): string {
+    //     $requestBody = [
+    //         "debug" => $this->debug,
+    //         "options" => $options->get(),
+    //         "origins" => [
+    //             [
+    //                 "source" => base64_encode($html),
+    //                 "dictionary" => $dictionaryCollection->get()
+    //             ]
+    //         ]
+    //     ];
+
+    //     $response = $this->request
+    //         ->post('/', $requestBody)
+    //         ->serviceResponse();
+
+    //     if ($this->request->serviceHttpCode() !== 200) {
+    //         throw new ServiceException("Não foi possível gerar o arquivo PDF");
+    //     }
+
+    //     return $response;
+    // }
 }

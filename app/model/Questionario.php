@@ -15,13 +15,12 @@ class Questionario extends ModelHelper
     parent::__construct();
     self::$conexao = $this->pdo;
   }
-  public function inserirDadosQuestionario($json)
+  public function inserirDadosQuestionario($resposta)
   {
     try {
 
-      $resposta = $json;
-
       $id_atendimento = (int)$resposta->id_atendimento;
+      // $id_atendimento = 24;
       $idade = (string)$resposta->idade;
       $sexo = (string)$resposta->sexo;
       $peso = (string)$resposta->peso;
@@ -35,8 +34,9 @@ class Questionario extends ModelHelper
       $form_labio_palato = (string)$resposta->form_labio_palato;
       $caracteristica_lingua = (string)$resposta->caracteristica_lingua;
       $desenv_pelo = (string)$resposta->desenv_pelo;
-      // $form_orgao_rep = (string)$resposta->form_orgao_rep;
-      // $form_nariz = (string)$resposta->form_nariz;
+      $form_orgao_rep = "";
+      (string)$resposta->form_orgao_rep;
+      $form_nariz = ""; //(string)$resposta->form_nariz;
       $form_orelha =  (string)$resposta->form_orelha;
       $hist_cardiopatico = (string)$resposta->hist_cardiopatico;
       $idade_materna = (string)$resposta->idade_materna;
@@ -57,7 +57,6 @@ class Questionario extends ModelHelper
         :desenv_pelo, :form_orgao_rep, :form_nariz, :form_orelha, :hist_cardiopatico, :idade_materna,
         :idade_paterna, :aquisicao_linguagem, :atraso_neuropsicomotor, :desenv_extremidade
       )";
-      $teste = "teste";
       $rQuery = self::$conexao->prepare($sql);
       $rQuery->bindParam(":fk_atendimento", $id_atendimento);
       $rQuery->bindParam(":idade", $idade);
@@ -72,8 +71,8 @@ class Questionario extends ModelHelper
       $rQuery->bindParam(":form_labio_palato", $form_labio_palato);
       $rQuery->bindParam(":caracteristica_lingua", $caracteristica_lingua);
       $rQuery->bindParam(":desenv_pelo", $desenv_pelo);
-      $rQuery->bindParam(":form_orgao_rep", $teste);
-      $rQuery->bindParam(":form_nariz", $teste);
+      $rQuery->bindParam(":form_orgao_rep", $form_orgao_rep);
+      $rQuery->bindParam(":form_nariz", $form_nariz);
       $rQuery->bindParam(":form_orelha", $form_orelha);
       $rQuery->bindParam(":hist_cardiopatico", $hist_cardiopatico);
       $rQuery->bindParam(":idade_materna", $idade_materna);
@@ -82,7 +81,9 @@ class Questionario extends ModelHelper
       $rQuery->bindParam(":atraso_neuropsicomotor", $atraso_neuropsicomotor);
       $rQuery->bindParam(":desenv_extremidade", $desenv_extremidade);
       $rQuery->execute();
-
+      // $idAtendimento = self::$conexao->lastInsertId();
+      // echo "ID_ATENDIMENTO: " . $idAtendimento;
+      // return json_encode(["id_atendimento" => $idAtendimento]);
       return $rQuery->rowCount() > 0 ? true : false;
     } catch (PDOException $e) {
     }

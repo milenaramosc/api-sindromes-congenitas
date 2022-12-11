@@ -10,6 +10,7 @@
 
 const ROTAS_LIBERADAS = [
     '/atendimento/iniciar' . "POST",
+    '/gerar/relatorio' . "GET",
 ];
 
 /**
