@@ -1,0 +1,38 @@
+{
+    "require": {
+        "php": ">=7.4",
+        "phpoffice\/phpspreadsheet": "^1.23",
+        "spipu/html2pdf": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app\/",
+            "App\\Controller\\": "app\/controller\/",
+            "App\\Core\\": "app\/core\/",
+            "App\\Core\\Config\\": "app\/core\/config\/",
+            "App\\Core\\Database\\": "app\/core\/database\/",
+            "App\\Core\\Exceptions\\": "app\/core\/exceptions\/",
+            "App\\Core\\Handlers\\": "app\/core\/handlers\/",
+            "App\\Core\\Handlers\\Comprovante\\": "app\/core\/handlers\/comprovante\/",
+            "App\\Core\\Handlers\\Curl\\": "app\/core\/handlers\/curl\/",
+            "App\\Core\\Handlers\\Exceptions\\": "app\/core\/handlers\/exceptions\/",
+            "App\\Core\\Handlers\\Jwt\\": "app\/core\/handlers\/jwt\/",
+            "App\\Core\\Handlers\\Logs\\": "app\/core\/handlers\/logs\/",
+            "App\\Core\\Handlers\\Middlewares\\": "app\/core\/handlers\/middlewares\/",
+            "App\\Core\\Handlers\\Request\\": "app\/core\/handlers\/request\/",
+            "App\\Core\\Handlers\\Response\\": "app\/core\/handlers\/response\/",
+            "App\\Core\\Handlers\\Router\\": "app\/core\/handlers\/router\/",
+            "App\\Core\\Helpers\\": "app\/core\/helpers\/",
+            "App\\Core\\Utils\\": "app\/core\/utils\/",
+            "App\\Messages\\": "app\/messages\/",
+            "App\\Middlewares\\": "app\/middlewares\/",
+            "App\\Model\\": "app\/model\/",
+            "App\\Routes\\": "app\/routes\/",
+            "App\\Services\\": "app\/services\/",
+            "App\\Services\\Utils\\": "app\/services\/utils\/",
+            "App\\View\\": "app\/view\/",
+            "CLI\\": "cli\/",
+            "Modules\\": "app\/modules\/"
+        }
+    }
+}
