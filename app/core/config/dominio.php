@@ -27,7 +27,7 @@ const ABSOLUTE_VIEW_DIR = ABSOLUTE_MAIN_DIR . DIRECTORY_SEPARATOR . 'app' . DIRE
 const ABSOLUTE_KEYS_DIR = ABSOLUTE_MAIN_DIR . DIRECTORY_SEPARATOR . 'keys';
 
 /**
- * Caminho absoluto para o diretório de boleto
+ * Caminho absoluto para o diretório de relatório
  * @var string
  */
 const ABSOLUTE_BILLET_DIR = ABSOLUTE_MAIN_DIR
@@ -36,7 +36,7 @@ const ABSOLUTE_BILLET_DIR = ABSOLUTE_MAIN_DIR
     . DIRECTORY_SEPARATOR
     . 'modules'
     . DIRECTORY_SEPARATOR
-    . 'ExibicaoBoleto';
+    . 'ExibicaoRelatorio';
 
 /**
  * Caminho absoluto para o diretório de boletos

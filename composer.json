@@ -1,7 +1,8 @@
 {
     "require": {
         "php": ">=7.4",
-        "phpoffice\/phpspreadsheet": "^1.23"
+        "phpoffice\/phpspreadsheet": "^1.23",
+        "spipu/html2pdf": "^5.2"
     },
     "autoload": {
         "psr-4": {
