@@ -32,7 +32,7 @@ class ExibirRelatorio
     $converter = new HtmlToPdfConverter();
 
     $html = Files::readFile(ABSOLUTE_BILLET_DIR . DIRECTORY_SEPARATOR . "relatorio.template");
-    echo $html;
+    // echo $html;
     // exit;
     // $path = ABSOLUTE_BILLET_DIR . DIRECTORY_SEPARATOR . "relatorio.template";
     // $htmlRelatorio = new Templates($path);
@@ -41,8 +41,11 @@ class ExibirRelatorio
     // $this->prepareDictionary();
 
     // $pdf = $converter->convert($this->dictionaryCollection, $options, $html);
-
-    // $pdf = $pdf[0];
+    header("Content-Type: application/pdf");
+    header("Content-Disposition: attachment; filename=Relatorio_PIBIC.pdf");
+    echo $converter->convert($html);
+    // echo $pdf;
+    //  $pdf = $pdf[0];
 
     // ResponseHandler::pdfFile("Relatorio_PIBIC", $pdf);
   }

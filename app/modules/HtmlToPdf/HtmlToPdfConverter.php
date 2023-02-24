@@ -35,7 +35,7 @@ class HtmlToPdfConverter
     {
 
         $html2pdf = new Html2Pdf();
-        $html2pdf->writeHTML('<h1>HelloWorld</h1>This is my first test');
+        $html2pdf->writeHTML($html);
         $html2pdf->output();
         // $requestBody = [
         //     "debug" => $this->debug,

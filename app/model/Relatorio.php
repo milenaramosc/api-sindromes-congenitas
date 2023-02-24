@@ -19,6 +19,6 @@ class Questionario extends ModelHelper
   public function getMalFormacaoEncontradasNoAtendimento($json){
     $json = 34;
 
-    $sql = "SELECT"
+    $sql = "SELECT";
   }
 }

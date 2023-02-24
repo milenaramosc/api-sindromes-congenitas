@@ -20,7 +20,6 @@ class Questionario extends ModelHelper
     try {
 
       $id_atendimento = (int)$resposta->id_atendimento;
-      // $id_atendimento = 24;
       $idade = (string)$resposta->idade;
       $sexo = (string)$resposta->sexo;
       $peso = (string)$resposta->peso;

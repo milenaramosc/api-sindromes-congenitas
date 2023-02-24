@@ -8,7 +8,7 @@ use Modules\ExibicaoRelatorio\ExibirRelatorio;
 
 class RelatorioController
 {
-  public function gerar($json = null)
+  public function gerar($json = null, $id=0)
   {
     $exibirRelatorio = new ExibirRelatorio();
     $exibirRelatorio->show();
